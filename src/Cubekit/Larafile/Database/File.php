@@ -1,7 +1,7 @@
 <?php namespace Cubekit\Larafile\Database;
 
 use Cubekit\Larafile\Contracts\PresentableFile;
-use Cubekit\Larafile\Models\Traits\FileModel;
+use Cubekit\Larafile\Database\Traits\FileModel;
 use Illuminate\Database\Eloquent\Model;
 
 class File extends Model implements PresentableFile {
