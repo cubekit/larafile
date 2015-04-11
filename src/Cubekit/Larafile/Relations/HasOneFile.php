@@ -1,6 +1,5 @@
 <?php namespace Cubekit\Larafile\Relations;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
