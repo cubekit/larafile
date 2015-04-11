@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-interface FileUploader {
+interface FileManager {
 
     /**
      * This method should save the given file to a persistent storage and
@@ -12,6 +12,14 @@ interface FileUploader {
      * @return string
      */
     public function upload(UploadedFile $file);
+
+    /**
+     * This method should destroy file with the given name from a persistent
+     * storage.
+     *
+     * @param string $fileName
+     */
+    public function destroy($fileName);
 
 }
 

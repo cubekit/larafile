@@ -26,8 +26,8 @@ class LarafileServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->singleton(
-            'Cubekit\Larafile\Contracts\FileUploader',
-            'Cubekit\Larafile\DefaultFileUploader'
+            'Cubekit\Larafile\Contracts\FileManager',
+            'Cubekit\Larafile\DefaultFileManager'
         );
 
 		$this->app->singleton(

@@ -1,12 +1,12 @@
 <?php namespace Cubekit\Larafile;
 
-use Cubekit\Larafile\Contracts\FileUploader;
+use Cubekit\Larafile\Contracts\FileManager;
 
 use Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Cubekit\Larafile\Contracts\NameBuilder;
 
-class DefaultFileUploader implements FileUploader {
+class DefaultFileManager implements FileManager {
 
     /**
      * @var NameBuilder
@@ -26,11 +26,24 @@ class DefaultFileUploader implements FileUploader {
      */
     public function upload(UploadedFile $file)
     {
-        $name = $this->nameBuilder->build($file);
+        $fileName = $this->nameBuilder->build($file);
 
-        $this->getDisk()->put($name, $this->getContent($file));
+        $this->getDisk()->put($fileName, $this->getContent($file));
 
-        return $name;
+        return $fileName;
+    }
+
+    /**
+     * This method should destroy file with the given name from a persistent
+     * storage.
+     *
+     * @param string $fileName
+     */
+    public function destroy($fileName)
+    {
+        $disk = $this->getDisk();
+
+        if ($disk->exists($fileName)) { $disk->delete($fileName); }
     }
 
     /**
@@ -49,5 +62,4 @@ class DefaultFileUploader implements FileUploader {
     {
         return file_get_contents($file->getPathname());
     }
-
 }

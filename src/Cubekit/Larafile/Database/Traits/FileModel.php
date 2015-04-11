@@ -10,6 +10,16 @@ trait FileModel {
      */
     private $filePresenter;
 
+    protected static function bootFileModel()
+    {
+        static::deleting(function($model)
+        {
+            $manager = app()->make('Cubekit\Larafile\Contracts\FileManager');
+
+            $manager->destroy($model->name);
+        });
+    }
+
     /**
      * @return FilePresenter
      */
@@ -32,11 +42,11 @@ trait FileModel {
      */
     public static function upload(UploadedFile $file)
     {
-        $uploader = app()->make('Cubekit\Larafile\Contracts\FileUploader');
+        $manager = app()->make('Cubekit\Larafile\Contracts\FileManager');
 
         $instance = new static;
 
-        $instance->name = $uploader->upload($file);
+        $instance->name = $manager->upload($file);
 
         return $instance;
     }
