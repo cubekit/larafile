@@ -1,4 +1,4 @@
-<?php namespace Cubekit\Larafile\Models;
+<?php namespace Cubekit\Larafile\Database;
 
 use Cubekit\Larafile\Contracts\PresentableFile;
 use Cubekit\Larafile\Models\Traits\FileModel;

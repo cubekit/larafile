@@ -1,4 +1,4 @@
-<?php namespace Cubekit\Larafile\Models\Traits;
+<?php namespace Cubekit\Larafile\Database\Traits;
 
 use Cubekit\Larafile\Relations\HasOneFile;
 
