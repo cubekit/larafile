@@ -1,4 +1,4 @@
-<?php namespace Cubekit\Larafile;
+<?php namespace Cubekit\Larafile\Models\Traits;
 
 use Cubekit\Larafile\Contracts\FilePresenter;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

@@ -1,5 +1,6 @@
-<?php namespace Cubekit\Larafile;
+<?php namespace Cubekit\Larafile\Models;
 
+use Cubekit\Larafile\FileUtils;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Image extends File {
