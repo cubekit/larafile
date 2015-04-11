@@ -1,6 +1,6 @@
 <?php namespace Cubekit\Larafile\Database\Traits;
 
-use Cubekit\Larafile\Relations\HasOneFile;
+use Cubekit\Larafile\Database\Relations\HasOneFile;
 
 trait HasFiles {
 

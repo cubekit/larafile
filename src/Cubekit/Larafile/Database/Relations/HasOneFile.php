@@ -1,4 +1,4 @@
-<?php namespace Cubekit\Larafile\Relations;
+<?php namespace Cubekit\Larafile\Database\Relations;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
