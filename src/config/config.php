@@ -2,9 +2,9 @@
 
 return [
 
-    'disk' => 'public',
+    'disk' => '',
 
-    'prefix' => 'images',
+    'prefix' => '',
 
     'root_url' => '/'
 
