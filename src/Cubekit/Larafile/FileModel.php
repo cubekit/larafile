@@ -38,8 +38,6 @@ trait FileModel {
 
         $instance->name = $uploader->upload($file);
 
-        $instance->is_image = FileUtils::isImage($file);
-
         return $instance;
     }
 
