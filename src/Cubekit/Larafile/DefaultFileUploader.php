@@ -38,7 +38,7 @@ class DefaultFileUploader implements FileUploader {
      */
     private function getDisk()
     {
-        return Storage::disk( config('larafile.disk', 'local') );
+        return Storage::disk( config('cubekit.larafile.disk', 'local') );
     }
 
     /**

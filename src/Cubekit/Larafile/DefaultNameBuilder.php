@@ -19,6 +19,6 @@ class DefaultNameBuilder implements NameBuilder {
      */
     private function getPrefix()
     {
-        return str_finish( config('larafile.prefix', ''), '/' );
+        return str_finish( config('cubekit.larafile.prefix', ''), '/' );
     }
 }

@@ -16,7 +16,7 @@ class DefaultFilePresenter implements FilePresenter {
 
     public function __construct(PresentableFile $file)
     {
-        $this->rootUrl = str_finish( config('larafile.root_url'), '/' );
+        $this->rootUrl = str_finish( config('cubekit.larafile.root_url'), '/' );
 
         $this->file = $file;
     }
