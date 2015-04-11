@@ -11,6 +11,13 @@ class LarafileServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/../../config/config.php' => config_path('cubekit/larafile.php'),
+        ]);
+    }
+
 	/**
 	 * Register the service provider.
 	 *
