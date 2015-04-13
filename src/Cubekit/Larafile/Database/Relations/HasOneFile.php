@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class HasOneFile extends HasOne {
 
     /**
-     * @return @return bool|null
+     * @return bool
      */
     public function delete()
     {
@@ -16,7 +16,11 @@ class HasOneFile extends HasOne {
         // we need call the "delete" method directly on the model instance
         // instead of on query (as by default) to trigger this event.
 
-        return head($this->getQuery()->getModels())->delete();
+        if ($models = $this->getQuery()->getModels()) {
+            return head($models)->delete();
+        }
+
+        return false;
     }
 
     /**
