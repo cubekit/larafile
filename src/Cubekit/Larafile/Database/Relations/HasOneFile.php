@@ -25,8 +25,8 @@ class HasOneFile extends HasOne {
 
     /**
      * Upload file and save its model as related. Previous model will be
-     * deleted from database. If related model uses the "FileModel" trait,
-     * then its file also will be deleted.
+     * deleted from database. NOTE: if related model uses the "FileModel"
+     * trait, then its file also will be deleted.
      *
      * @param UploadedFile $file
      * @return Model
@@ -38,6 +38,32 @@ class HasOneFile extends HasOne {
         $file = call_user_func([$this->getQuery()->getModel(), 'upload'], $file);
 
         return $this->save($file);
+    }
+
+    /**
+     * It's a helper method created to prevent checking of file existence
+     * every time before trying to upload it.
+     *
+     * @example
+     *
+     * // This method
+     * $post->uploadIfExists($this->featuredImage);
+     *
+     * // Is a full equivalent of this code
+     * if ($this->featuredImage) {
+     *     $post->upload($this->featuredImage);
+     * }
+     *
+     * @param UploadedFile $file
+     * @return bool|Model
+     */
+    public function uploadIfExists(UploadedFile $file = null)
+    {
+        if ($file) {
+            return $this->upload($file);
+        }
+
+        return false;
     }
 
 } 
